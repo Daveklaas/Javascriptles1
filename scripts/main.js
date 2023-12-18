@@ -52,6 +52,7 @@ const departments = {
         numberOfEmployees: 32,
         jobs: [
             {
+                // 0
                 title: "Klantenservicemedewerker",
                 description: "Een klantenservicemedewerker fungeert als het primaire contactpunt voor klanten. Ze behandelen vragen, verstrekken product- of service-informatie, gaan in op klachten of zorgen van klanten en zorgen voor tijdige oplossingen. Klantenservicemedewerkers communiceren via verschillende kanalen zoals telefoongesprekken, e-mails of live chats en streven ernaar uitstekende klantervaringen te bieden."
             },
@@ -64,6 +65,7 @@ const departments = {
                 description: "Een accountmanager klantsucces richt zich op het opbouwen en onderhouden van sterke relaties met belangrijke klanten. Ze werken nauw samen met klanten om hun doelen te begrijpen, aan hun behoeften te voldoen en ervoor te zorgen dat ze waarde halen uit de geboden producten of diensten. Accountmanagers klantsucces engageren zich proactief met klanten, bieden begeleiding en identificeren kansen voor upselling of cross-selling."
             },
             {
+                // 3
                 title: "Customer Experience Manager",
                 description: "A Customer Experience Manager is verantwoordelijk voor het creëren en implementeren van strategieën om de algehele klantervaring te verbeteren. Ze analyseren klantinteracties, identificeren pijnpunten en ontwikkelen initiatieven om de klanttevredenheid en -loyaliteit te vergroten. Klantbelevingsmanagers werken samen met verschillende afdelingen om de klantgerichtheid van het bedrijf te verbeteren en klantgerichte processen en beleid te ontwikkelen."
             }
@@ -71,4 +73,26 @@ const departments = {
     }
 }
 
-console.log(departments);
+/*
+console.log(departments)
+/!*console.log(`De afdeling Sales heeft ${departments.sales.numberOfEmployees} medewerkers`);
+console.log(`Marketing is een leuke afdeling om te werken. ${departments.marketing.description}.`)
+console.log(`De afdeling Customer Service heeft ${departments["customer-service"].numberOfEmployees} medewerkers`)
+console.log(`Sales is een uitdagende afdeling om te werken als Verkoopmanager. ${departments.sales.jobs[1].description}`)*/
+
+const userInput = prompt('Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]');
+if (userInput !=='marketing' && userInput !=='sales' && userInput !=='customer-service'){
+   document.getElementById('role-title').textContent = 'Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.';
+    console.log('hoi')
+} else {
+
+    const userInput2 = prompt(`Je koos ${userInput}.Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in. 0 = ${departments[userInput].jobs[0].title} 1 = ${departments[userInput].jobs[1].title} 2 = ${departments[userInput].jobs[2].title} 3 = ${departments[userInput].jobs[3].title}`)
+    if (userInput2 !=='0' && userInput2 !=='1' && userInput2 !=='2' && userInput2 !=='3') {
+        console.log("Foute invoer")
+    } else {
+        console.log(`${departments[userInput].jobs[userInput2].description}`)
+    }
+}
+
+// console.log(`${departments[userInput].jobs[userInput2].description}`)
+
